@@ -1,0 +1,108 @@
+______________________________________________________________________
+Manuale di Installazione - Progetto IIW
+
+Benvenuto! Segui questi semplici passaggi per installare correttamente 
+il programma.
+______________________________________________________________________
+Prerequisiti
+- Sistema operativo Linux (Debian/Ubuntu, Arch, ecc.)
+- Connessione a Internet attiva
+- Terminale abilitato (bash/zsh)
+______________________________________________________________________
+1. Scarica i file del progetto
+Scarica tutti i file del progetto in una sola cartella. 
+Puoi ad esempio usare la cartella `Download` del tuo sistema.
+
+> Esempio:
+> `/home/nomeutente/Download/...`
+
+I file richiesti sono:
+- `installation.sh`
+- `tools_install.sh`
+- `program_install.sh`
+- `uninstall.sh`
+- `Progetto_IIW.zip` (contenente i sorgenti)
+______________________________________________________________________
+2. Apri il terminale
+Apri il terminale ed entra nella cartella dove hai scaricato i file.
+
+bash esempio:
+cd ~/Download
+______________________________________________________________________
+3. Rendi eseguibili gli script
+Dai i permessi di esecuzione a tutti gli script `.sh`.
+
+bash:
+chmod +x *.sh
+______________________________________________________________________
+4. Avvia l’installazione
+Lancia lo script principale per installare il progetto:
+
+bash:
+./installation.sh
+
+Lo script ti guiderà passo passo:
+- Ti chiederà se vuoi disinstallare una versione precedente 
+  del programma.
+- Ti chiederà se vuoi fare un’installazione standard o 
+  completa (la completa installa anche gli strumenti necessari).
+- Al termine potrai avviare direttamente la demo.
+- Una volta avviata la demo si apriranno due schermate bash per
+  Client e Server. Inserisci prima ip e porta (default) del Server 
+  aspettando il corretto avviamento, solo in seguito 
+  inserisci stesso ip e porta anche nel lato Client
+  e aspetta il collegamento, ovvero quando vedrai la schermata
+  iniziale.
+  (Per default si raccomanda IP: 127.0.0.1 ; 7000<PORT<65535)
+  (Se vengono riscontrati problemi si può eseguire manualmente
+   ./run_client.sh e ./run_server.sh).
+______________________________________________________________________
+5. Configurazione dei parametri (opzionale)
+Puoi personalizzare alcuni parametri interni del programma, come:
+`N`, `P`, `T`, `FIXEDTIMEOUT`, `MAX_THREADS`, 
+`PERFORMANCE`, `MAXIMUM_ATTEMPT`.
+
+N: Gestisce la dimensione della finestra scorrevole
+P: Rappresenta la probabilità di perdita
+T: durata del timeout
+FIXEDTIMEOUT: ON oppure OFF
+MAX_THREADS: numero massimo di threads child per il server
+PERFORMANCE: ON oppure OFF (disabilita le printf)
+MAXIMUM_ATTEMPT: massimi tentativi di ritrasmissione
+
+Per farlo, esegui lo script all'interno del progetto nel local_bin:
+
+bash:
+./config_macros.sh
+
+Lo script ti chiederà i nuovi valori per ciascun parametro. 
+Premi Invio per lasciare invariato un parametro.
+I file aggiornati sono:
+- `server/include/macros.h`
+- `Client/include/macros.h`
+______________________________________________________________________
+Disinstallazione
+Per rimuovere completamente il programma, puoi eseguire:
+
+bash:
+./uninstall.sh oppure ./installation.sh (opzione disinstallazione)
+______________________________________________________________________
+Supporto
+In caso di problemi, controlla i messaggi nel terminale. 
+Se qualcosa non funziona, assicurati di:
+- Avere una connessione Internet attiva
+- Essere nella cartella corretta
+- Avere permessi di esecuzione sugli script
+- Aver installato le librerie corrette per lo sviluppo in codice C
+- Raggiungere nuovamente il progetto nella cartella
+  di sistema: ~/local_bin/Progetto_IIW ed eventualmente
+  eseguire ./run_demo.sh oppure tentare nuovamente la procedura di
+  installazione.
+- chiudere prima il client e poi il server,
+  per evitare il blocco del programma del client
+  (mancata risposta del server)
+______________________________________________________________________
+
+Grazie per aver provato il Progetto IIW per l'anno 23/24!
+🧑‍💻 Autori: Alessio Pompeo, Davide Edoardo Stoica, Consuelo Caporaso
+______________________________________________________________________
