@@ -1,4 +1,8 @@
-# 📡 Trasferimento File su UDP — Reliable Client-Server su Linux
+# 📡 Reliable File Transfer over UDP — Client-Server in C
+
+> **A reliable, multithreaded client-server file transfer built on UDP in C**, re-implementing TCP-like guarantees at application level: Selective Repeat with circular buffer, three-way handshake, CRC32, adaptive timeout (RTT estimation), Base64 + Caesar cipher. University project (Internet and Web Engineering, Tor Vergata, A.A. 2023/2024), Italian documentation; the report is included as PDF.
+
+![C](https://img.shields.io/badge/C-A8B9CC?logo=c&logoColor=black) ![UDP](https://img.shields.io/badge/UDP-reliable%20transfer-1f6feb) ![Linux](https://img.shields.io/badge/Linux-POSIX-FCC624?logo=linux&logoColor=black) ![License](https://img.shields.io/badge/License-AGPL--3.0-red)
 
 Progetto universitario per il corso di **Ingegneria di Internet e Web** — implementazione di un'applicazione **Client-Server multithreading** in C che realizza un trasferimento file affidabile su **protocollo UDP**, emulando le principali caratteristiche di TCP a livello applicativo: controllo di flusso, rilevamento degli errori, ordinamento dei pacchetti e ritrasmissione selettiva.
 
@@ -143,7 +147,7 @@ Lo script guida l'installazione, installa le dipendenze necessarie e avvia la de
 
 ```bash
 # Server
-cd Server && make
+cd server && make
 
 # Client
 cd Client && make
@@ -180,7 +184,7 @@ Parametri configurabili:
 
 ```
 .
-├── Server/
+├── server/
 │   ├── server_files/          # File disponibili per il download
 │   ├── src/
 │   │   ├── server.c           # Entry point e gestione richieste
@@ -248,3 +252,12 @@ Il trasferimento di un file da 100 MB con probabilità di perdita del 90% viene 
 - **Compilatore**: GCC 14.2
 - **Librerie**: `zlib`, `pthread`, Berkeley Sockets API
 - **Tool**: VSCode, GDB, Valgrind, Make
+
+---
+
+## 📄 Licenza
+
+GNU Affero General Public License v3.0, vedi [`LICENSE`](LICENSE).
+---
+
+*Keywords: reliable UDP, UDP file transfer, Selective Repeat, three-way handshake, CRC32, adaptive timeout, RTT estimation, client-server, socket programming, C, multithreading, Linux, university project.*
